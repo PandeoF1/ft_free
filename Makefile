@@ -6,7 +6,7 @@
 #    By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/09 13:15:12 by tnard             #+#    #+#              #
-#    Updated: 2022/04/08 16:56:09 by tnard            ###   ########lyon.fr    #
+#    Updated: 2022/04/08 17:15:50 by tnard            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,12 +53,6 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 
-bonus: $(OBJECTS_BONUS_PREFIXED)
-	@ar r $(NAME) $(OBJECTS_BONUS_PREFIXED) >/dev/null 2>&1 &
-	
-other: $(OBJECTS_OTHER_PREFIXED)
-	@ar r $(NAME) $(OBJECTS_OTHER_PREFIXED) >/dev/null 2>&1 &
-
 re: fclean all
 
-.PHONY:		all clean fclean re bonus
+.PHONY:		all clean fclean re file
