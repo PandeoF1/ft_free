@@ -39,7 +39,7 @@ But if you free it with free() that can crash if you use ft_free_remove() / ft_f
 
 If you try to add a variable not malloced / not NULLED it will crash the program.<br />
 If you want to use it, be sure the variables is malloced or the variable = NULL<br />
-If a NULL variables is gived in ft_free_add(), the program will don't ad it<br /><br />
+If a NULL variables is gived in ft_free_add(), the program will don't add it<br /><br />
 Example of a crash :<br />
 ```c
 int main(void)
@@ -60,7 +60,7 @@ To patch it :<br />
 ```c
   b = NULL; // Before adding it, or don't add it ;).
 ```
-If a variables is manually freed and inside the free list, that gonna cause a "double free error" if you use ft_free() / ft_free_remove(m_free_ptr, ptr)<br />
+If a variables is manually freed and is inside the free list, that gonna cause a "double free error" if you use ft_free() / ft_free_remove(m_free_ptr, ptr)<br />
 The struct m_free returned by ft_free_init() is a malloced struct, so if you don't use ft_free(), he don't gonna be free. If you init him and you don't add any ptr, you can use ft_free or free(m_free)<br />
 
 ## Example (Global Usage):
