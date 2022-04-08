@@ -58,7 +58,7 @@ To patch it :<br />
 If a variables is manually freed and inside the free list, that gonna cause a "double free error" if you use ft_free() / ft_free_remove(m_free_ptr, ptr)<br />
 The struct m_free returned by ft_free_init() is a malloced struct, so if you don't use ft_free(), he don't gonna be free. If you init him and you don't add any ptr, you can use ft_free or free(m_free)<br />
 
-## Example :
+## Example (Global Usage):
 ```c
 int main(void)
 {
@@ -78,6 +78,7 @@ int main(void)
   ft_free(m_free);
 }
 ```
+## Example (Performance Test (5000 malloc)):
 ```c
 int	main(void)
 {
@@ -111,6 +112,7 @@ int	main(void)
 	return (0);
 }
 ```
+## Example (Own malloc function):
 ```c
 int	main(void)
 {
