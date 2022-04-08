@@ -20,17 +20,17 @@ This project is made to perform a clean management of all malloc.<br /><br />
 Functions :<br />
 ```c
   t_m_free	*ft_free_init(void);
-    Return malloced struct of t_m_free to store all malloced ptr
+  	Return malloced struct of t_m_free to store all malloced ptr
   void		*ft_free_malloc(t_m_free *m_free, size_t size);
-    Malloc a new ptr and store it in m_free struct (ft_free_add not needed, already done)
+  	Malloc a new ptr and store it in m_free struct (ft_free_add not needed, already done)
   int		ft_free_add(t_m_free *m_free, void *ptr);
-    Add inside m_free the malloced ptr
+  	Add inside m_free the malloced ptr
   void		ft_free_remove(t_m_free *m_free, void *ptr);
-    Remove inside m_free the ptr malloced and free it
+  	Remove inside m_free the ptr malloced and free it
   void		ft_free(t_m_free *m_free);
-    Free all maloced ptr and free m_free
+  	Free all maloced ptr and free m_free
   int		ft_free_size(t_m_free *m_free);
-    Return the number of malloced ptr
+  	Return the number of malloced ptr
 ```
 If you try to add two (or much) time a ptr to ft_free_add(), that gonna do nothing (The program cancel the action if found in the list)<br />
 If you try to free a function with ft_free_remove two times (or more) that gonna do nothing. <br />
