@@ -20,21 +20,26 @@ This project is made to perform a clean management of all malloc.<br /><br />
 Functions :<br />
 ```c
   t_m_free	*ft_free_init(void);
-    Return malloced struct of t_m_free to store all malloced ptr
+  	Return malloced struct of t_m_free to store all malloced ptr
   void		*ft_free_malloc(t_m_free *m_free, size_t size);
-    Malloc a new ptr and store it in m_free struct (ft_free_add not needed, already done)
+  	Malloc a new ptr and store it in m_free struct (ft_free_add not needed, already done)
   int		ft_free_add(t_m_free *m_free, void *ptr);
-    Add inside m_free the malloced ptr
+  	Add inside m_free the malloced ptr
   void		ft_free_remove(t_m_free *m_free, void *ptr);
-    Remove inside m_free the ptr malloced and free it
+  	Remove inside m_free the ptr malloced and free it
   void		ft_free(t_m_free *m_free);
-    Free all maloced ptr and free m_free
+  	Free all maloced ptr and free m_free
   int		ft_free_size(t_m_free *m_free);
-    Return the number of malloced ptr
+  	Return the number of malloced ptr
 ```
+If you try to add two (or much) time a ptr to ft_free_add(), that gonna do nothing (The program cancel the action if found in the list)<br />
+If you try to free a function with ft_free_remove two times (or more) that gonna do nothing. <br />
+But if you free it with free() that can crash if you use ft_free_remove() / ft_free() - To patch that :
+- Set the PTR to NULL (Or don't use free()..).
+
 If you try to add a variable not malloced / not NULLED it will crash the program.<br />
 If you want to use it, be sure the variables is malloced or the variable = NULL<br />
-If a NULL variables is gived in ft_free_add(), the program will don't ad it<br /><br />
+If a NULL variables is gived in ft_free_add(), the program will don't add it<br /><br />
 Example of a crash :<br />
 ```c
 int main(void)
@@ -55,7 +60,7 @@ To patch it :<br />
 ```c
   b = NULL; // Before adding it, or don't add it ;).
 ```
-If a variables is manually freed and inside the free list, that gonna cause a "double free error" if you use ft_free() / ft_free_remove(m_free_ptr, ptr)<br />
+If a variables is manually freed and is inside the free list, that gonna cause a "double free error" if you use ft_free() / ft_free_remove(m_free_ptr, ptr)<br />
 The struct m_free returned by ft_free_init() is a malloced struct, so if you don't use ft_free(), he don't gonna be free. If you init him and you don't add any ptr, you can use ft_free or free(m_free)<br />
 
 ## Example (Global Usage):
