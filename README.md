@@ -34,8 +34,8 @@ Functions :<br />
 ```
 If you try to add two (or much) time a ptr to ft_free_add(), that gonna do nothing (The program cancel the action if found in the list)<br />
 If you try to free a function with ft_free_remove two times (or more) that gonna do nothing. <br />
-But if you free it with free() can crash if you can ft_free_remove() / ft_free().  <br />
-If you free with free() your only solution is to set the ptr to NULL and ft_free don't gonna touch it. <br />
+But if you free it with free() that can crash if you use ft_free_remove() / ft_free(). Solution :
+	Set the PTR to NULL (Or don't use free()..).<br />
 If you try to add a variable not malloced / not NULLED it will crash the program.<br />
 If you want to use it, be sure the variables is malloced or the variable = NULL<br />
 If a NULL variables is gived in ft_free_add(), the program will don't ad it<br /><br />
