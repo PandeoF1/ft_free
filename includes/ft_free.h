@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 15:35:03 by tnard             #+#    #+#             */
-/*   Updated: 2022/04/08 17:13:02 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2022/04/08 19:01:04 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,22 @@ typedef struct s_free
 
 typedef struct s_m_free
 {
-	size_t			size;
 	struct s_free	*list;
 }				t_m_free;
 
-t_m_free	*ft_free_init(void);
+t_m_free		*ft_free_init(void);
 
-void		ft_free(t_m_free *m_free);
+void			ft_free(t_m_free *m_free);
+void			ft_free_remove(t_m_free *m_free, void *ptr);
+void			ft_free_remove_if(t_free **begin_list, void *ptr_ref);
 
-void		ft_free_remove(t_m_free *m_free, void *ptr);
-void		ft_free_remove_if(t_free **begin_list, void *ptr_ref);
+int				ft_free_add(t_m_free *m_free, void *ptr);
+int				ft_free_add_value(t_m_free *m_free, t_free *new, t_free *tmp);
 
-int			ft_free_add(t_m_free *m_free, void *ptr);
-int			ft_free_add_value(t_m_free *m_free, t_free *new, t_free *tmp);
+unsigned long	ft_free_get_size(t_m_free *m_free);
+int				ft_free_get_nb(t_m_free *m_free);
+
+int				ft_free_get_nb(t_m_free *m_free);
+unsigned long	ft_free_get_size(t_m_free *m_free);
 
 #endif
