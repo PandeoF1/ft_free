@@ -6,7 +6,7 @@
 #    By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/09 13:15:12 by tnard             #+#    #+#              #
-#    Updated: 2022/04/08 17:15:50 by tnard            ###   ########lyon.fr    #
+#    Updated: 2022/04/08 17:42:17 by tnard            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,12 +22,6 @@ NAME = ft_free.a
 OBJS_DIR = objs/
 OBJS = $(SRCS:.c=.o)
 OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
-
-OBJSB = $(SRCSB:.c=.o)
-OBJECTS_BONUS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJSB))
-
-OBJSO = $(SRCSO:.c=.o)
-OBJECTS_OTHER_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJSO))
 
 CC = gcc
 
