@@ -74,11 +74,60 @@ int main(void)
   ft_free_add(m_free, (void *)test);
   // If you want to remove it manually you just need to use :
   ft_free_remove(m_free, (void *)test);
-  // Else, if you want to remove all malloced variable :
+  // Else, if you want to remove all malloced variable (also needed to destroy *m_free):
   ft_free(m_free);
 }
 ```
+```c
+int	main(void)
+{
+	t_m_free	*m_free;
+	char		*a;
+	int			*b;
+	char		**c;
+	char		*d;
+	int			x;
 
+	d = NULL;
+	x = 0;
+	m_free = ft_free_init();
+	while (x < 1000)
+	{
+		a = malloc(sizeof(char) * 100);
+		ft_free_add(m_free, a);
+		b = malloc(sizeof(int) * 100);
+		ft_free_add(m_free, b);
+		c = malloc(sizeof(char *) * 2);
+		c[0] = malloc(sizeof(char) * 100);
+		c[1] = malloc(sizeof(char) * 100);
+		ft_free_add(m_free, d); // Exemple of null pointer
+		ft_free_add(m_free, c[1]);
+		ft_free_add(m_free, c);
+		ft_free_add(m_free, c[0]);
+		x++;
+	}
+	printf("%d\n", ft_free_size(m_free));
+	ft_free(m_free);
+	return (0);
+}
+```
+```c
+int	main(void)
+{
+	t_m_free	*m_free;
+	char		*test;
+
+	m_free = ft_free_init();
+	test = ft_free_malloc(m_free, sizeof(char) * 100);
+	test[0] = 'a';
+	test[1] = 'b';
+	test[2] = 'c';
+	test[3] = '\0';
+	printf("%s\n", test);
+	ft_free(m_free);
+	return (0);
+}
+```
 ## Tools :
  > - [norminette](https://github.com/42School/norminette) <br />
  > - [Makefile](https://github.com/PandeoF1/makefile) <br />
