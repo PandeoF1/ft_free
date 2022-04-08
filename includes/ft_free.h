@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 15:35:03 by tnard             #+#    #+#             */
-/*   Updated: 2022/04/08 19:01:04 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2022/04/08 20:01:58 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int				ft_free_add_value(t_m_free *m_free, t_free *new, t_free *tmp);
 unsigned long	ft_free_get_size(t_m_free *m_free);
 int				ft_free_get_nb(t_m_free *m_free);
 
-int				ft_free_get_nb(t_m_free *m_free);
-unsigned long	ft_free_get_size(t_m_free *m_free);
+int				ft_free_size(t_m_free *m_free);
 
 #endif

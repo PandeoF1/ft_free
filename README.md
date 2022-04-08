@@ -22,12 +22,39 @@ Functions :<br />
   t_m_free	*ft_free_init(void);
     Return malloced struct of t_m_free to store all malloced ptr
   int		ft_free_add(t_m_free *m_free, void *ptr);
-    Add inside m_free the ptr of the malloced ptr
+    Add inside m_free the malloced ptr
   void		ft_free_remove(t_m_free *m_free, void *ptr);
-    Remove inside m_free and free the ptr malloced
+    Remove inside m_free the ptr malloced and free it
   void		ft_free(t_m_free *m_free);
     Free all maloced ptr and free m_free
- ```
+  int				ft_free_size(t_m_free *m_free);
+    Return the number of malloced ptr
+```
+If you try to add a variable not malloced / not NULLED it will crash the program.<br />
+If you want to use it, be sure the variables is malloced or the variable = NULL<br />
+If a NULL variables is gived in ft_free_add(), the program will don't ad it<br /><br />
+Example of a crash :<br />
+```c
+int main(void)
+{
+  t_m_free  *m_free;
+  char      *a;
+  char      *b;
+ 
+  m_free = ft_free_init();
+  
+  a = malloc(sizeof(char));
+  ft_free_add(m_free, (void *)a);
+  ft_free_add(m_free, (void *)b);
+  ft_free(m_free);
+}
+```
+To patch it :<br />
+```c
+  b = NULL; // Before adding it, or don't add it ;).
+```
+If a variables is manually freed and inside the free list, that gonna cause a "double free error" if you use ft_free() / ft_free_remove(m_free_ptr, ptr)<br />
+The struct m_free returned by ft_free_init() is a malloced struct, so if you don't use ft_free(), he don't gonna be free. If you init him and you don't add any ptr, you can use ft_free or free(m_free)<br />
 
 ## Example :
 ```c
@@ -42,9 +69,9 @@ int main(void)
   test = malloc(sizeof(char));
   ft_free_add(m_free, (void *)test);
   // If you want to remove it manually you just need to use :
-  // ft_free_remove(m_free, (void *)test);
+  ft_free_remove(m_free, (void *)test);
   // Else, if you want to remove all malloced variable :
-  // ft_free(m_free);
+  ft_free(m_free);
 }
 ```
 

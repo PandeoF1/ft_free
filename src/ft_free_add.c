@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 16:54:18 by tnard             #+#    #+#             */
-/*   Updated: 2022/04/08 17:08:21 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2022/04/08 20:02:43 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,16 @@ int	ft_free_add(t_m_free *m_free, void *ptr)
 	t_free	*new;
 	t_free	*tmp;
 
-	new = (t_free *)malloc(sizeof(t_free));
-	tmp = NULL;
-	new->ptr = ptr;
-	new->next = NULL;
-	if (ft_free_add_value(m_free, new, tmp))
-		return (1);
-	else
-		free(new);
+	if (ptr)
+	{
+		new = (t_free *)malloc(sizeof(t_free));
+		tmp = NULL;
+		new->ptr = ptr;
+		new->next = NULL;
+		if (ft_free_add_value(m_free, new, tmp))
+			return (1);
+		else
+			free(new);
+	}
 	return (0);
 }

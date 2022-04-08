@@ -6,7 +6,7 @@
 #    By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/09 13:15:12 by tnard             #+#    #+#              #
-#    Updated: 2022/04/08 19:44:08 by tnard            ###   ########lyon.fr    #
+#    Updated: 2022/04/08 20:02:08 by tnard            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ RST			= \033[0m
 END			= \e[0m
 
 SRCS    =	src/ft_free.c src/ft_free_add.c src/ft_free_remove.c src/ft_free_init.c \
-			src/ft_free_get_size.c src/ft_free_get_nb.c
+			src/ft_free_size.c
 NAME	= ft_free.a
 
 OBJS_DIR = objs/
