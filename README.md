@@ -29,7 +29,7 @@ Functions :<br />
     Remove inside m_free the ptr malloced and free it
   void		ft_free(t_m_free *m_free);
     Free all maloced ptr and free m_free
-  int				ft_free_size(t_m_free *m_free);
+  int		ft_free_size(t_m_free *m_free);
     Return the number of malloced ptr
 ```
 If you try to add a variable not malloced / not NULLED it will crash the program.<br />
