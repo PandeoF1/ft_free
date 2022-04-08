@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 15:35:03 by tnard             #+#    #+#             */
-/*   Updated: 2022/04/08 20:01:58 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2022/04/08 21:24:39 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ typedef struct s_m_free
 t_m_free		*ft_free_init(void);
 
 void			ft_free(t_m_free *m_free);
+
+void			*ft_free_malloc(t_m_free *m_free, size_t size);
+
 void			ft_free_remove(t_m_free *m_free, void *ptr);
 void			ft_free_remove_if(t_free **begin_list, void *ptr_ref);
 

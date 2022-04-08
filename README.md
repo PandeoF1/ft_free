@@ -21,6 +21,8 @@ Functions :<br />
 ```c
   t_m_free	*ft_free_init(void);
     Return malloced struct of t_m_free to store all malloced ptr
+  void	*ft_free_malloc(t_m_free *m_free, size_t size);
+    Malloc a new ptr and store it in m_free struct (ft_free_add not needed, already done)
   int		ft_free_add(t_m_free *m_free, void *ptr);
     Add inside m_free the malloced ptr
   void		ft_free_remove(t_m_free *m_free, void *ptr);
@@ -62,11 +64,13 @@ int main(void)
 {
   t_m_free  *m_free;
   char      *test;
+  char      *test2;
  
   m_free = ft_free_init();
   
   // Now you can malloc a variable.
   test = malloc(sizeof(char));
+  test2 = ft_free_malloc(m_free, sizeof(char));
   ft_free_add(m_free, (void *)test);
   // If you want to remove it manually you just need to use :
   ft_free_remove(m_free, (void *)test);
