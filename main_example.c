@@ -6,12 +6,12 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 18:57:57 by tnard             #+#    #+#             */
-/*   Updated: 2022/04/08 20:26:14 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2022/04/08 21:08:44 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-	This is a big test with more than 
+	This is a big test with more than 4000 mallocs
 
 
 */
