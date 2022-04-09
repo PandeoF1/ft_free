@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 18:51:31 by tnard             #+#    #+#             */
-/*   Updated: 2022/04/08 20:01:49 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2022/04/09 20:42:20 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ int	ft_free_size(t_m_free *m_free)
 
 	i = 0;
 	tmp = m_free->list;
+	if (tmp)
+		i = 1;
 	if (!tmp)
-		return (0);
+		return (i);
 	while (tmp->next)
 	{
 		tmp = tmp->next;

@@ -135,6 +135,21 @@ int	main(void)
 	return (0);
 }
 ```
+## Example (Count malloced ptr):
+```c
+int	main(void)
+{
+	t_m_free	*m_free;
+	char		*test;
+
+	m_free = ft_free_init();
+	printf("%d\n", ft_free_size(m_free));
+	test = ft_free_malloc(m_free, sizeof(char));
+	printf("%d\n", ft_free_size(m_free));
+	ft_free(m_free);
+	return (0);
+}
+```
 ## Tools :
  > - [norminette](https://github.com/42School/norminette) <br />
  > - [Makefile](https://github.com/PandeoF1/makefile) <br />

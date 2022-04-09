@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 15:35:03 by tnard             #+#    #+#             */
-/*   Updated: 2022/04/08 21:24:39 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2022/04/09 20:39:58 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,6 @@ void			ft_free_remove_if(t_free **begin_list, void *ptr_ref);
 
 int				ft_free_add(t_m_free *m_free, void *ptr);
 int				ft_free_add_value(t_m_free *m_free, t_free *new, t_free *tmp);
-
-unsigned long	ft_free_get_size(t_m_free *m_free);
-int				ft_free_get_nb(t_m_free *m_free);
 
 int				ft_free_size(t_m_free *m_free);
 
