@@ -1,17 +1,17 @@
 <h1 align="center">
-	42 - ft_free
+	ft_free
 </h1>
 
 <p align="center">
-	<b><i>Development repo for 42cursus' tnard project at 42 lyon</i></b><br>
+	<b><i>Development repo for tnard project</i></b><br>
 </p>
 
 <p align="center">
 	<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/PandeoF1/42-ft_free?color=blueviolet" />
 	<img alt="Number of lines of code" src="https://img.shields.io/tokei/lines/github/PandeoF1/42-ft_free?color=blueviolet" />
-	<img alt="Code language count" src="https://img.shields.io/github/languages/count/PandeoF1/42-ft_free?color=blue" />
-	<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/PandeoF1/42-ft_free?color=blue" />
-	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/PandeoF1/42-ft_free?color=brightgreen" />
+	<img alt="Code language count" src="https://img.shields.io/github/languages/count/PandeoF1/ft_free?color=blue" />
+	<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/PandeoF1/ft_free?color=blue" />
+	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/PandeoF1/ft_free?color=brightgreen" />
 </p>
 
 ---
@@ -34,7 +34,7 @@ Functions :<br />
 ```
 If you try to add two (or much) time a ptr to ft_free_add(), that gonna do nothing (The program cancel the action if found in the list)<br />
 If you try to free a function with ft_free_remove two times (or more) that gonna do nothing. <br />
-But if you free it with free() that can crash if you use ft_free_remove() / ft_free() - To patch that :
+But if you free it with free() that can crash if after you use ft_free_remove() / ft_free() - To patch that :
 - Set the PTR to NULL (Or don't use free()..).
 
 If you try to add a variable not malloced / not NULLED it will crash the program.<br />
