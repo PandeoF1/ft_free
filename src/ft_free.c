@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 16:55:05 by tnard             #+#    #+#             */
-/*   Updated: 2023/11/01 21:07:20 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2023/11/01 21:25:43 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,12 @@ void	ft_free(t_m_free *m_free)
 	free(m_free);
 }
 
-__attribute__((constructor)) void _ft_free_init() {
+__attribute__((constructor)) void	_ft_free_init(void)
+{
 	g_ft_free = ft_free_init();
 }
 
-__attribute__((destructor)) void _ft_free_destroy() {
-    ft_free(g_ft_free);
+__attribute__((destructor)) void	_ft_free_destroy(void)
+{
+	ft_free(g_ft_free);
 }
