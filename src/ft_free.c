@@ -5,36 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/08 16:55:05 by tnard             #+#    #+#             */
-/*   Updated: 2023/11/01 21:25:43 by tnard            ###   ########lyon.fr   */
+/*   Created: 2022/04/08 16:54:39 by tnard             #+#    #+#             */
+/*   Updated: 2023/11/01 22:36:27 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_free.h"
 
-t_m_free	*g_ft_free;
-
-void	ft_free(t_m_free *m_free)
+void	ft_free_remove_if(t_free **begin_list, void *ptr_ref)
 {
-	t_free	*tmp;
+	t_free	*to_free;
 
-	while (m_free->list)
+	if (*begin_list)
 	{
-		tmp = m_free->list;
-		m_free->list = m_free->list->next;
-		if (tmp->ptr)
-			free(tmp->ptr);
-		free(tmp);
+		if ((*begin_list)->ptr == ptr_ref)
+		{
+			to_free = *begin_list;
+			*begin_list = (*begin_list)->next;
+			if (to_free->ptr)
+				free(to_free->ptr);
+			free(to_free);
+			ft_free_remove_if(begin_list, ptr_ref);
+		}
+		else
+			ft_free_remove_if(&(*begin_list)->next, ptr_ref);
 	}
-	free(m_free);
 }
 
-__attribute__((constructor)) void	_ft_free_init(void)
+void	ft_free(void *ptr)
 {
-	g_ft_free = ft_free_init();
-}
-
-__attribute__((destructor)) void	_ft_free_destroy(void)
-{
-	ft_free(g_ft_free);
+	ft_free_remove_if(&g_ft_free->list, ptr);
 }

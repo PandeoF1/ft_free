@@ -6,7 +6,7 @@
 #    By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/09 13:15:12 by tnard             #+#    #+#              #
-#    Updated: 2023/11/01 21:16:20 by tnard            ###   ########lyon.fr    #
+#    Updated: 2023/11/01 22:36:40 by tnard            ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ RED			= \033[0;31m
 RST			= \033[0m
 END			= \e[0m
 
-SRCS    =	src/ft_free.c src/ft_free_add.c src/ft_free_remove.c src/ft_free_init.c \
+SRCS    =	src/ft_free.c src/ft_free_add.c src/ft_free_destroy.c src/ft_free_init.c \
 			src/ft_free_size.c src/ft_malloc.c src/ft_xmalloc.c
 NAME	= ft_free.a
 
