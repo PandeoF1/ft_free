@@ -6,19 +6,19 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 18:51:31 by tnard             #+#    #+#             */
-/*   Updated: 2022/04/09 20:42:20 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2023/11/01 21:11:49 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_free.h"
 
-int	ft_free_size(t_m_free *m_free)
+int	ft_free_size()
 {
 	t_free	*tmp;
 	int		i;
 
 	i = 0;
-	tmp = m_free->list;
+	tmp = g_ft_free->list;
 	if (tmp)
 		i = 1;
 	if (!tmp)

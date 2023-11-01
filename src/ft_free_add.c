@@ -6,17 +6,17 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 16:54:18 by tnard             #+#    #+#             */
-/*   Updated: 2022/04/08 20:02:43 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2023/11/01 21:09:01 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_free.h"
 
-int	ft_free_add_value(t_m_free *m_free, t_free *new, t_free *tmp)
+int	ft_free_add_value(t_free *new, t_free *tmp)
 {
-	if (m_free->list)
+	if (g_ft_free->list)
 	{
-		tmp = m_free->list;
+		tmp = g_ft_free->list;
 		while (tmp->next)
 		{
 			if (tmp->ptr == new->ptr)
@@ -30,13 +30,13 @@ int	ft_free_add_value(t_m_free *m_free, t_free *new, t_free *tmp)
 	}
 	else
 	{
-		m_free->list = new;
+		g_ft_free->list = new;
 		return (1);
 	}
 	return (0);
 }
 
-int	ft_free_add(t_m_free *m_free, void *ptr)
+int	ft_free_add(void *ptr)
 {
 	t_free	*new;
 	t_free	*tmp;
@@ -47,7 +47,7 @@ int	ft_free_add(t_m_free *m_free, void *ptr)
 		tmp = NULL;
 		new->ptr = ptr;
 		new->next = NULL;
-		if (ft_free_add_value(m_free, new, tmp))
+		if (ft_free_add_value(new, tmp))
 			return (1);
 		else
 			free(new);

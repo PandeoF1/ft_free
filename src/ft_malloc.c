@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   ft_malloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/08 16:55:05 by tnard             #+#    #+#             */
-/*   Updated: 2023/11/01 21:07:20 by tnard            ###   ########lyon.fr   */
+/*   Created: 2022/04/08 21:23:30 by tnard             #+#    #+#             */
+/*   Updated: 2023/11/01 21:15:42 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_free.h"
 
-t_m_free	*g_ft_free;
-
-void	ft_free(t_m_free *m_free)
+void	*ft_malloc(size_t size)
 {
-	t_free	*tmp;
+	void	*ptr;
 
-	while (m_free->list)
-	{
-		tmp = m_free->list;
-		m_free->list = m_free->list->next;
-		if (tmp->ptr)
-			free(tmp->ptr);
-		free(tmp);
-	}
-	free(m_free);
-}
-
-__attribute__((constructor)) void _ft_free_init() {
-	g_ft_free = ft_free_init();
-}
-
-__attribute__((destructor)) void _ft_free_destroy() {
-    ft_free(g_ft_free);
+	ptr = malloc(size);
+	if (ptr == NULL)
+		return (NULL);
+	ft_free_add(ptr);
+	return (ptr);
 }

@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 15:35:03 by tnard             #+#    #+#             */
-/*   Updated: 2022/04/09 20:39:58 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2023/11/01 21:21:32 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <stdio.h>
+# include <unistd.h>
 
 typedef struct s_free
 {
@@ -31,14 +32,17 @@ t_m_free		*ft_free_init(void);
 
 void			ft_free(t_m_free *m_free);
 
-void			*ft_free_malloc(t_m_free *m_free, size_t size);
+void			*ft_malloc(size_t size);
+void			*ft_xmalloc(size_t size);
 
-void			ft_free_remove(t_m_free *m_free, void *ptr);
+void			ft_free_remove(void *ptr);
 void			ft_free_remove_if(t_free **begin_list, void *ptr_ref);
 
-int				ft_free_add(t_m_free *m_free, void *ptr);
-int				ft_free_add_value(t_m_free *m_free, t_free *new, t_free *tmp);
+int				ft_free_add(void *ptr);
+int				ft_free_add_value(t_free *new, t_free *tmp);
 
-int				ft_free_size(t_m_free *m_free);
+int				ft_free_size();
+
+extern t_m_free	*g_ft_free;
 
 #endif

@@ -21,15 +21,15 @@ Functions :<br />
 ```c
   t_m_free	*ft_free_init(void);
   	Return malloced struct of t_m_free to store all malloced ptr
-  void		*ft_free_malloc(t_m_free *m_free, size_t size);
+  void		*ft_free_malloc(size_t size);
   	Malloc a new ptr and store it in m_free struct (ft_free_add not needed, already done)
-  int		ft_free_add(t_m_free *m_free, void *ptr);
+  int		ft_free_add(void *ptr);
   	Add inside m_free the malloced ptr
-  void		ft_free_remove(t_m_free *m_free, void *ptr);
+  void		ft_free_remove(void *ptr);
   	Remove inside m_free the ptr malloced and free it
   void		ft_free(t_m_free *m_free);
   	Free all maloced ptr and free m_free
-  int		ft_free_size(t_m_free *m_free);
+  int		ft_free_size(void);
   	Return the number of malloced ptr
 ```
 If you try to add two (or much) time a ptr to ft_free_add(), that gonna do nothing (The program cancel the action if found in the list)<br />
@@ -48,12 +48,9 @@ int main(void)
   char      *a;
   char      *b;
  
-  m_free = ft_free_init();
-  
   a = malloc(sizeof(char));
-  ft_free_add(m_free, (void *)a);
-  ft_free_add(m_free, (void *)b);
-  ft_free(m_free);
+  ft_free_add((void *)a);
+  ft_free_add((void *)b);
 }
 ```
 To patch it :<br />
@@ -71,16 +68,13 @@ int main(void)
   char      *test;
   char      *test2;
  
-  m_free = ft_free_init();
-  
   // Now you can malloc a variable.
   test = malloc(sizeof(char));
-  test2 = ft_free_malloc(m_free, sizeof(char));
-  ft_free_add(m_free, (void *)test);
+  test2 = ft_free_malloc(sizeof(char));
+  ft_free_add((void *)test);
   // If you want to remove it manually you just need to use :
-  ft_free_remove(m_free, (void *)test);
+  ft_free_remove((void *)test);
   // Else, if you want to remove all malloced variable (also needed to destroy *m_free):
-  ft_free(m_free);
 }
 ```
 ## Example (Performance Test (5000 malloc)):
@@ -96,24 +90,22 @@ int	main(void)
 
 	d = NULL;
 	x = 0;
-	m_free = ft_free_init();
 	while (x < 1000)
 	{
 		a = malloc(sizeof(char) * 100);
-		ft_free_add(m_free, a);
+		ft_free_add(a);
 		b = malloc(sizeof(int) * 100);
-		ft_free_add(m_free, b);
+		ft_free_add(b);
 		c = malloc(sizeof(char *) * 2);
 		c[0] = malloc(sizeof(char) * 100);
 		c[1] = malloc(sizeof(char) * 100);
-		ft_free_add(m_free, d); // Exemple of null pointer
-		ft_free_add(m_free, c[1]);
-		ft_free_add(m_free, c);
-		ft_free_add(m_free, c[0]);
+		ft_free_add(d); // Exemple of null pointer
+		ft_free_add(c[1]);
+		ft_free_add(c);
+		ft_free_add(c[0]);
 		x++;
 	}
-	printf("%d\n", ft_free_size(m_free));
-	ft_free(m_free);
+	printf("%d\n", ft_free_size());
 	return (0);
 }
 ```
@@ -124,14 +116,12 @@ int	main(void)
 	t_m_free	*m_free;
 	char		*test;
 
-	m_free = ft_free_init();
-	test = ft_free_malloc(m_free, sizeof(char) * 100);
+	test = ft_free_malloc(sizeof(char) * 100);
 	test[0] = 'a';
 	test[1] = 'b';
 	test[2] = 'c';
 	test[3] = '\0';
 	printf("%s\n", test);
-	ft_free(m_free);
 	return (0);
 }
 ```
@@ -142,11 +132,9 @@ int	main(void)
 	t_m_free	*m_free;
 	char		*test;
 
-	m_free = ft_free_init();
-	printf("%d\n", ft_free_size(m_free));
-	test = ft_free_malloc(m_free, sizeof(char));
-	printf("%d\n", ft_free_size(m_free));
-	ft_free(m_free);
+	printf("%d\n", ft_free_size());
+	test = ft_free_malloc(sizeof(char));
+	printf("%d\n", ft_free_size());
 	return (0);
 }
 ```

@@ -6,7 +6,7 @@
 /*   By: tnard <tnard@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 16:54:39 by tnard             #+#    #+#             */
-/*   Updated: 2022/04/08 16:54:45 by tnard            ###   ########lyon.fr   */
+/*   Updated: 2023/11/01 21:09:10 by tnard            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_free_remove_if(t_free **begin_list, void *ptr_ref)
 	}
 }
 
-void	ft_free_remove(t_m_free *m_free, void *ptr)
+void	ft_free_remove(void *ptr)
 {
-	ft_free_remove_if(&m_free->list, ptr);
+	ft_free_remove_if(&g_ft_free->list, ptr);
 }

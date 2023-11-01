@@ -1,0 +1,5 @@
+objs
+.vscode
+test.c
+*.out
+ft_free.a
